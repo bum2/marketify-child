@@ -18,14 +18,14 @@ function marketify_downloads_section_title() {
 		} else {
 			$base = $cat->name;
 		}
-		
+
 		// bumbum
 		global $edd_options, $edd_currency_shortcodes;
 		if( !edd_currency_get_stored_currency() || edd_get_currency() == edd_currency_get_stored_currency() ) {
-			printf( __( 'Today: &nbsp;%s Fair = 1 eur &nbsp;%s &nbsp;%s', 'marketify'), number_format($edd_options['faircoin_price'], 2, '.', ','), $edd_currency_shortcodes->edd_select_currency_shortcode(''), '<i class="edd-icon-spinner edd-icon-spin"></i>' );
+			printf( __( 'Today: &nbsp;1 Fair = %s eur &nbsp;%s &nbsp;%s', 'marketify'), number_format($edd_options['faircoin_price'], 2, '.', ','), $edd_currency_shortcodes->edd_select_currency_shortcode(''), '<i class="edd-icon-spinner edd-icon-spin"></i>' );
 		} else {
 			include_once( WP_PLUGIN_DIR . '/edd-currency-converter' . '/includes/class-edd-currency-shortcodes.php' );
-			printf( __( 'Today: &nbsp;%s Fair ≈ 1 %s &nbsp;%s &nbsp;%s', 'edd-getfaircoin'), number_format($edd_options['faircoin_price']/edd_currency_get_converted_price( 1 ), 2, '.', ','), edd_currency_get_stored_currency(), $edd_currency_shortcodes->edd_select_currency_shortcode(''), '<i class="edd-icon-spinner edd-icon-spin"></i>' );
+			printf( __( 'Today: &nbsp;1 Fair ≈ %s %s &nbsp;%s &nbsp;%s', 'edd-getfaircoin'), number_format($edd_options['faircoin_price']/edd_currency_get_converted_price( 1 ), 2, '.', ','), edd_currency_get_stored_currency(), $edd_currency_shortcodes->edd_select_currency_shortcode(''), '<i class="edd-icon-spinner edd-icon-spin"></i>' );
 		}
 		//printf( __( 'Popular %s', 'marketify' ), $base );
 		//
